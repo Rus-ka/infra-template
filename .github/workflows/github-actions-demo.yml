@@ -9,8 +9,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14.20.0'
-      - name: npm install
       - run: npm install
-      - name: npm run test
       - run: npm run test
     
