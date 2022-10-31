@@ -1,0 +1,16 @@
+name: CI TS
+run-name: Проверка CI TS
+on: [push]
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.20.0'
+      - name: npm install
+      - run: npm install
+      - name: npm run test
+      - run: npm run test
+    
