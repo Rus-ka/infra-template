@@ -7,7 +7,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/'
+    if: github.event_name == 'push'
     needs: CI-push-check
     steps:
 
@@ -19,16 +19,16 @@ jobs:
       - name: echo check
         run: echo 'Echo should work fine :)'
       
-      - name: install dependencies
-        run: |
-          cd scripts
-          npm install
+      # - name: install dependencies
+      #   run: |
+      #     cd scripts
+      #     npm install
     
-      - name: ticket information update
-        env:
-          ID_TICKET: ${{ secrets.TICKET_ID }}
-          OAUTH_TOKEN: ${{ secrets.TRACKER_OATH_TOKEN }}
-          X_ORG_ID: ${{ secrets.X_ORG_ID }}
-        run: |
-          cd scripts
-          node main.js
+      # - name: ticket information update
+      #   env:
+      #     ID_TICKET: ${{ secrets.TICKET_ID }}
+      #     OAUTH_TOKEN: ${{ secrets.TRACKER_OATH_TOKEN }}
+      #     X_ORG_ID: ${{ secrets.X_ORG_ID }}
+      #   run: |
+      #     cd scripts
+      #     node main.js
