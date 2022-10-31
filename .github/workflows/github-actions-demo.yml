@@ -2,7 +2,6 @@ name: CI TS
 run-name: Проверка CI TS
 on: [push]
 jobs:
-  continuous-integration:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
