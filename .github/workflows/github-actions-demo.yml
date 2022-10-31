@@ -24,6 +24,3 @@ jobs:
 
       - name: run ts
         run: npm run ts
-
-      - name: check 
-      - run: echo 'now should look amazing!'
