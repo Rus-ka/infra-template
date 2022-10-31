@@ -1,18 +1,29 @@
 name: CI TS
 run-name: Проверка CI TS
 on: 
-  push:
-    tags:
-      - "rc-0.0.*"
+  [push]
 jobs:
-  test:
+  linter:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout-actions
+        uses: actions/checkout@v3
+
+      - name: Setup-actions
+        uses: actions/setup-node@v3
         with:
           node-version: '16.16.0'
-      - run: npm install
-      - run: npm run lint
-      - run: npm run ts
-    
+      - name: install dependencies
+        run: npm ci
+
+      - name: install npm
+        run: npm install
+
+      - name: run lint
+        run: npm run lint
+
+      - name: run ts
+        run: npm run ts
+
+      - name: check 
+      - run: echo 'now should look amazing!'
