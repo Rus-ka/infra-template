@@ -7,7 +7,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    # if: github.event_name == 'push'
+    # needs: CI-push-check
     steps:
       - name: Checkout-actions
         uses: actions/checkout@v3
@@ -17,8 +18,8 @@ jobs:
         with:
           node-version: '16.16.0'
 
-      - name: install dependencies
-      run: npm ci
+        - name: install dependencies
+        run: npm ci
 
       - name: install npm
         run: npm install
