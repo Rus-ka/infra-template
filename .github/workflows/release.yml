@@ -1,9 +1,9 @@
 name: Release
 run-name: Release
 on: 
-push:
-  tags:
-    - rc-0.0.*
+  push:
+    tags:
+      - rc-0.0.*
 jobs:
   linter:
       runs-on: ubuntu-latest
