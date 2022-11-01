@@ -1,9 +1,7 @@
 name: CI-push-check
 run-name: CI
-on: 
-  push:
-    tags-ignore:
-      - 'rc-0.0.*'
+on: [push]
+
 jobs:
   linter:
       runs-on: ubuntu-latest
@@ -26,4 +24,5 @@ jobs:
 
         - name: run ts
           run: npm run ts
+  
  

@@ -2,9 +2,9 @@ name: Release
 run-name: Release
 on: 
   push:
-   tags:
-      - 'rc-0.0.*'
-   
+    tags:
+     - 'rc-0.0.[0-9]+'
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -31,23 +31,25 @@ jobs:
 
         - name: make build
           run: npm run build
-
+            
         - name: build docker
           run: docker build . --file Dockerfile --tag test
         
-        - name: echo check
-          run: echo 'Echo should work fine :)'
-
-      # - name: install dependencies
-      #   run: |
-      #     cd scripts
-      #     npm install
-    
-      # - name: ticket information update
-      #   env:
-      #     ID_TICKET: ${{ secrets.TICKET_ID }}
-      #     OAUTH_TOKEN: ${{ secrets.TRACKER_OATH_TOKEN }}
-      #     X_ORG_ID: ${{ secrets.X_ORG_ID }}
-      #   run: |
-      #     cd scripts
-      #     node main.js
+        
+        # - name: ticket information update
+        #   env:
+        #     ID_TICKET: ${{ secrets.TICKET_ID }}
+        #     OAUTH_TOKEN: ${{ secrets.TRACKER_OATH_TOKEN }}
+        #     X_ORG_ID: ${{ secrets.X_ORG_ID }}
+        #   run: |
+        #     cd scripts
+        #     node main.js
+              
+        # - name: create comment
+        #   env:
+        #     RELEASE: ${{ github.ref_name }}
+        #     OAUTH: ${{ secrets.OAUTH }}
+        #     ORG_ID: ${{ secrets.ORG_ID }}
+        #   run: |
+        #     cd .github/workflows/ticket_update
+        #     node createComment.js
