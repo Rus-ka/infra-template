@@ -29,26 +29,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: linter
     steps:
-      - name: Checkout-actions
-        uses: actions/checkout@v3
-
-      - name: Setup-actions
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.16.0'
-      - name: install dependencies
-        run: npm ci
-
-      - name: install npm
-        run: npm install
-
       - name: Sending ticket
         env:
         oauthToken: ${{ secrets.TRACKER_OATH_TOKEN }}
         orgId: ${{ secrets.X_ORG_ID  }}
         ticketName: ${{ secrets.TICKET_NAME }}
       run: node ./scripts/main.js
-      
+
       - name: echo check
           run: echo 'Echo should work fine :)'
       # - name: build docker
