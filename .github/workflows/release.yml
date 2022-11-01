@@ -40,9 +40,10 @@ jobs:
         run: npm ci 
 
       - name: test main
-        # env:
-        #   OAUTH_TOKEN: ${{secrets.TRACKER_OATH_TOKEN}}
-        #   TICKET_ID: ${{secrets.TICKET_ID}}
-        #   X_ORG_ID: ${{secrets.X_ORG_ID}}
-        run: node ./scripts/main.js
+         - env:
+            TICKET_ID: ${{ secrets.TICKET_ID }}
+            AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+            ORG_ID: ${{ secrets.ORG_ID }}
+          run: node ./scripts/main.js
+
   
