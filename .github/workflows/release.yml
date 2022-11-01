@@ -3,13 +3,12 @@ run-name: Release
 on: 
   push:
     tags:
-      - "rc-0.0.*"
+      - 'rc-0.0.*'
 jobs:
   release:
     runs-on: ubuntu-latest
     # if: github.event_name == 'push'
     steps:
-    uses: ./.github/workflows/CI-push-check
     
         - name: Checkout-actions
           uses: actions/checkout@v3
