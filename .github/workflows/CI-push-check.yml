@@ -3,7 +3,7 @@ run-name: CI
 on: 
   push:
     tags-ignore:
-      - rc-0.0.*
+    - rc-0.0.*
 jobs:
   linter:
       runs-on: ubuntu-latest
@@ -15,7 +15,10 @@ jobs:
           uses: actions/setup-node@v3
           with:
             node-version: '16.16.0'
-  
+            
+        - name: install dependencies
+          run: npm ci
+
         - name: install npm
           run: npm install
 
