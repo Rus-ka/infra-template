@@ -9,7 +9,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      # - uses: ./.github/workflows/CI-push-check
+        - uses: ./.github/workflows/CI-push-check
         - name: Checkout-actions
           uses: actions/checkout@v3
 
