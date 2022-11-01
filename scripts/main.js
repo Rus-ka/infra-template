@@ -1,11 +1,9 @@
-import * as github from '@actions/github'
-const { TRACKER_OATH_TOKEN, TICKET_ID, X_ORG_ID } = process.env
-
-export async function updateTicket() {
-  const regexp = /rc-0.0.(<maintenance>\d+)/
-  console.log(regexp)
-  const tag = github.context.ref_name
-  console.log(tag)
-  const { maintenance } = tag.match(regexp)
-  console.log(maintenance)
-}
+fetch(`https://api.tracker.yandex.net/v2/issues/${process.env.TICKET_ID}/comments`, {
+  method: "POST",
+  headers: {
+    Authorization: `OAuth ${process.env.AUTH_TOKEN}`,
+    "X-Org-ID": `${process.env.X_ORG_ID}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ text: "Тест" }),
+});

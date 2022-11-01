@@ -1,6 +1,6 @@
 name: Release
 run-name: Release
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   linter:
       runs-on: ubuntu-latest
@@ -39,10 +39,10 @@ jobs:
       - name: 'install dependencies'
         run: npm ci 
 
-      - name: update ticket
-        env:
-          OAUTH_TOKEN: ${{secrets.TRACKER_OATH_TOKEN}}
-          TICKET_ID: ${{secrets.TICKET_ID}}
-          X_ORG_ID: ${{secrets.X_ORG_ID}}
+      - name: test main
+        # env:
+        #   OAUTH_TOKEN: ${{secrets.TRACKER_OATH_TOKEN}}
+        #   TICKET_ID: ${{secrets.TICKET_ID}}
+        #   X_ORG_ID: ${{secrets.X_ORG_ID}}
         run: npm run main
   
