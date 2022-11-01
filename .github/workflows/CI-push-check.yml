@@ -3,7 +3,7 @@ run-name: CI
 on: 
   push:
     tags-ignore:
-      - rc-0.0.*
+      - 'rc-0.0.*'
 jobs:
   linter:
       runs-on: ubuntu-latest
