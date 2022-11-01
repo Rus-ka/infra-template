@@ -29,12 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: linter
     steps:
-      - name: Sending ticket
-        env:
-        oauthToken: ${{ secrets.TRACKER_OATH_TOKEN }}
-        orgId: ${{ secrets.X_ORG_ID  }}
-        ticketName: ${{ secrets.TICKET_NAME }}
-      run: node ./scripts/main.js
+      # - name: Sending ticket
+      #   env:
+      #   oauthToken: ${{ secrets.TRACKER_OATH_TOKEN }}
+      #   orgId: ${{ secrets.X_ORG_ID  }}
+      #   ticketName: ${{ secrets.TICKET_NAME }}
+      # run: node ./scripts/main.js
 
       - name: echo check
           run: echo 'Echo should work fine :)'
