@@ -46,7 +46,7 @@ jobs:
           TICKET_ID: ${{ secrets.TICKET_ID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           ORG_ID: ${{ secrets.X_ORG_ID }}
-        run: node ./updticket.js
+        run: node ./scripts/updticket.js
 
       - name: 'build image'
         env:
@@ -54,6 +54,6 @@ jobs:
           TICKET_ID: ${{ secrets.TICKET_ID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           ORG_ID: ${{ secrets.X_ORG_ID }}
-        run: node ./image.js
+        run: node ./scripts/image.js
 
   
