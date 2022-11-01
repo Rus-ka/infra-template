@@ -1,9 +1,6 @@
 name: Release
 run-name: Release
-on: 
-  push:
-    tags:
-      - 'rc-0.0.[0-9]+'
+on: [push]
 
 jobs:
   release:
@@ -31,6 +28,14 @@ jobs:
 
         - name: make build
           run: npm run build
-            
+
+        - name: Sending ticket
+          env:
+          oauthToken: ${{ secrets.TRACKER_OATH_TOKEN }}
+          orgId: ${{ secrets.X_ORG_ID  }}
+          ticketName: ${{ secrets.TICKET_NAME }}
+        run: node ./scripts/main.js
+   
+
         - name: build docker
           run: docker build . --file Dockerfile --tag test
