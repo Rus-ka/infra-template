@@ -44,5 +44,5 @@ jobs:
         #   OAUTH_TOKEN: ${{secrets.TRACKER_OATH_TOKEN}}
         #   TICKET_ID: ${{secrets.TICKET_ID}}
         #   X_ORG_ID: ${{secrets.X_ORG_ID}}
-        run: npm run main
+        run: node ./scripts/main.js
   
