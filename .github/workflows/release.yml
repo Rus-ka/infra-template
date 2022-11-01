@@ -1,9 +1,6 @@
 name: Release
 run-name: Release
-on: 
-  push:
-    tags:
-      - 'rc-0.0.[0-9]+'
+on: [push, workflow_dispatch]
 
 jobs:
   linter:
