@@ -2,7 +2,7 @@ name: CI-push-check
 run-name: CI
 on: 
   push:
-    tags:
+    tags-ignore:
       - rc-0.0.*
 jobs:
   linter:
