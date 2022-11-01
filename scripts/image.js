@@ -1,10 +1,10 @@
 import fetch from "node-fetch";
 import exec from "@actions/exec";
 
-const { TAG, TICKET_ID, AUTH_TOKEN, ORG_ID } = process.env;
+const { TAG, TICKET_ID, AUTH_TOKEN, X_ORG_ID } = process.env;
 const headers = {
     Authorization: `OAuth ${AUTH_TOKEN}`,
-    'X-Org-ID': ORG_ID,
+    'X-Org-ID': X_ORG_ID,
 };
 
 const main = async () => {
