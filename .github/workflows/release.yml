@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.event_name == 'push'
     steps:
-    # uses: ./.github/workflows/CI-push-check
+    uses: ./.github/workflows/CI-push-check
     
         - name: Checkout-actions
           uses: actions/checkout@v3
