@@ -36,6 +36,18 @@ jobs:
           uses: actions/setup-node@v3
           with:
             node-version: '16.16.0'
+        - name: install dependencies
+          run: npm ci
+
+        - name: install npm
+          run: npm install
+
+        - name: run lint
+          run: npm run lint
+
+        - name: run ts
+          run: npm run ts
+
       # - name: Sending ticket
       #   env:
       #   oauthToken: ${{ secrets.TRACKER_OATH_TOKEN }}
