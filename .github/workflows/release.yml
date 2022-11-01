@@ -8,7 +8,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     # if: github.event_name == 'push'
-    # needs: CI-push-check
+    uses: .github/workflows/CI-push-check
     steps:
         - name: Checkout-actions
           uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
           run: |
             echo $RELEASE_VERSION
             echo ${{ env.RELEASE_VERSION }}
-            
+
         - name: Setup-actions
           uses: actions/setup-node@v3
           with:
