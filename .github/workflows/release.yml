@@ -26,6 +26,5 @@ jobs:
         ticketName: ${{ secrets.TICKET_NAME }}
       run: node ./scripts/main.js
    
-
       - name: build docker
         run: docker build . --file Dockerfile --tag test
