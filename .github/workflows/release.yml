@@ -1,14 +1,14 @@
 name: Release
 run-name: Release
 on: 
-  push:
-    tags:
-      - rc-0.0.*
+  [push]
+    # tags:
+    #   - rc-0.0.*
 jobs:
   release:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push'
-    # needs: CI-push-check
+    if: github.event_name == 'push'
+    needs: CI-push-check
     steps:
       - name: Checkout-actions
         uses: actions/checkout@v3

@@ -1,7 +1,7 @@
 name: CI-push-check
 run-name: CI
 on: 
-push:
+  push:
     tags-ignore:
       - rc-0.0.*
 jobs:
