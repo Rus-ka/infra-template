@@ -19,15 +19,6 @@ jobs:
       - name: install npm
         run: npm install
 
-      - name: run test
-        run: npm run test
-
-      - name: run lint
-        run: npm run lint
-
-      - name: make build
-        run: npm run build
-
       - name: Sending ticket
         env:
         oauthToken: ${{ secrets.TRACKER_OATH_TOKEN }}
