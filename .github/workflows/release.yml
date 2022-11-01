@@ -2,40 +2,41 @@ name: Release
 run-name: Release
 on: 
   push:
-    tags:
+   tags-ignore:
       - rc-0.0.*
+   
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/CI-push-check
-        # - name: Checkout-actions
-        #   uses: actions/checkout@v3
+      # - uses: ./.github/workflows/CI-push-check
+        - name: Checkout-actions
+          uses: actions/checkout@v3
 
-        # - name: Setup-actions
-        #   uses: actions/setup-node@v3
-        #   with:
-        #     node-version: '16.16.0'
-        # - name: install dependencies
-        #   run: npm ci
+        - name: Setup-actions
+          uses: actions/setup-node@v3
+          with:
+            node-version: '16.16.0'
+        - name: install dependencies
+          run: npm ci
 
-        # - name: install npm
-        #   run: npm install
+        - name: install npm
+          run: npm install
 
-        # - name: run test
-        #   run: npm run test
+        - name: run test
+          run: npm run test
 
-        # - name: run lint
-        #   run: npm run lint
+        - name: run lint
+          run: npm run lint
 
-        # - name: make build
-        #   run: npm run build
+        - name: make build
+          run: npm run build
 
-        # - name: build docker
-        #   run: docker build . --file Dockerfile --tag test
+        - name: build docker
+          run: docker build . --file Dockerfile --tag test
         
-        # - name: echo check
-        #   run: echo 'Echo should work fine :)'
+        - name: echo check
+          run: echo 'Echo should work fine :)'
 
       # - name: install dependencies
       #   run: |

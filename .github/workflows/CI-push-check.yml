@@ -1,6 +1,9 @@
 name: CI-push-check
 run-name: CI
-on: [ push ]
+on: 
+  push:
+    tags:
+      - rc-0.0.*
 jobs:
   linter:
       runs-on: ubuntu-latest
