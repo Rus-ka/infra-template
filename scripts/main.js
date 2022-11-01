@@ -1,4 +1,4 @@
-const fetch = require("node-fetch")
+const fetch = require("node-fetch");
 fetch(`https://api.tracker.yandex.net/v2/issues/${process.env.TICKET_ID}/comments`, {
   method: "POST",
   headers: {
