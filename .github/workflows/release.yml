@@ -42,12 +42,12 @@ jobs:
 
       - name: 'install dependencies'
         run: npm ci 
-
+        
       - name: 'update ticket'
           env:
             TAG: ${{ github.ref_name }}
             AUTHOR: ${{ github.actor }}
             TICKET_ID: ${{ secrets.TICKET_ID }}
             AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-            ORG_ID: ${{ secrets.X_ORG_ID }}
+            X_ORG_ID: ${{ secrets.X_ORG_ID }}
           run: node ./scripts/updticket.js
