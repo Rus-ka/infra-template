@@ -1,6 +1,9 @@
 name: Release
 run-name: Release
-on: [push, workflow_dispatch]
+on: 
+  push:
+    tags:
+      - "rc-0.0.*"
 jobs:
   linter:
       runs-on: ubuntu-latest
@@ -45,5 +48,3 @@ jobs:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           ORG_ID: ${{ secrets.X_ORG_ID }}
         run: node ./scripts/main.js
-
-  

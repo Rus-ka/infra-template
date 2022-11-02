@@ -1,4 +1,6 @@
 import fetch from "node-fetch";
+import { threadId } from "worker_threads";
+
 fetch(`https://api.tracker.yandex.net/v2/issues/${process.env.TICKET_ID}/comments`, {
   method: "POST",
   headers: {
@@ -7,4 +9,5 @@ fetch(`https://api.tracker.yandex.net/v2/issues/${process.env.TICKET_ID}/comment
     "Content-Type": "application/json",
   },
   body: JSON.stringify({ text: "Тест" }),
-});
+})
+
