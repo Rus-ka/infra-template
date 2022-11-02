@@ -16,7 +16,7 @@ const main = async () => {
             method: 'POST',
             headers,
             body: JSON.stringify({
-            text: `Собрали образ с тегом ${TAG}`
+            'text': `Собрали образ с тегом ${TAG}`
             })
         });
         console.log('Комментарий успешно создан')
